@@ -1,6 +1,10 @@
 #!/bin/bash
 
-# inizializza il db delle recensioni 
+# inizializza il db delle recensioni
+
+echo Starting recensioni db in docker container
+
+docker run  --name recensioni -p 5432:5432 -e POSTGRES_PASSWORD=postgres -d postgres
 
 curl -X POST "http://localhost:8080/recensioni/recensioni" -H "accept: */*" -H "Content-Type: application/json" \
      -d "{ \"recensore\": \"Woody\", \"album\": \"The Dark Side of the Moon\", \"artista\": \"Pink Floyd\", \"genere\": \"Rock\", 
