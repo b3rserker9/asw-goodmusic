@@ -18,6 +18,9 @@ configurations {
 dependencies {
   implementation project(':connessioni-api')
   implementation project(':recensioni-api')
+  implementation project(path: ':goodmusic-common-api-event')
+  implementation project(path: ':recensioni-api-event')
+  implementation project(path: ':connessioni-api-event')
 
   implementation 'org.springframework.boot:spring-boot-starter-web'
   implementation 'org.springframework.cloud:spring-cloud-starter'
@@ -29,8 +32,9 @@ dependencies {
 //  implementation 'org.springframework.cloud:spring-cloud-starter-circuitbreaker-reactor-resilience4j'
 //  implementation 'org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j'
 
-//  implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-//  implementation 'org.hsqldb:hsqldb'
+  implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+  implementation 'org.postgresql:postgresql'
+  implementation 'org.springframework.kafka:spring-kafka'
 
   compileOnly 'org.projectlombok:lombok' 
   annotationProcessor 'org.projectlombok:lombok'

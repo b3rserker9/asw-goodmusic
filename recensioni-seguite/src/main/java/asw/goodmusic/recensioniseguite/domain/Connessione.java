@@ -1,18 +1,28 @@
 package asw.goodmusic.recensioniseguite.domain;
 
-import lombok.*; 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import lombok.*;
 
-/* Connessione tra un utente e un seguito (con un ruolo). */  
+/* Connessione tra un utente e un seguito (con un ruolo). */
+@Entity
 @Data @NoArgsConstructor @AllArgsConstructor
 public class Connessione {
 
 	/* id della connessione */ 
-	private Long id; 
+	@Id@GeneratedValue
+	private Long id;
 	/* utente che segue */ 
 	private String utente; 
 	/* chi o cosa è seguito (un artista o uno che scrive recensioni oppure un genere musicale) */ 
 	private String seguito; 
 	/* ruolo del seguito: può essere ARTISTA oppure RECENSORE oppure GENERE */ 
-	private String ruolo; 
-	
+	private String ruolo;
+
+	public Connessione(String utente, String seguito, String ruolo) {
+		this.utente = utente;
+		this.seguito = seguito;
+		this.ruolo = ruolo;
+	}
 }
