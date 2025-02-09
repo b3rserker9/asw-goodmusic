@@ -76,6 +76,7 @@ L'applicazione *GoodMusic* è composta dai seguenti microservizi:
 Per eseguire questo progetto:
 
 * per avviare *Consul* e l'applicazione *GoodMusic*, eseguire lo script `start-goodmusic.sh`
+* per avviare l'applicazione *GoodMusic* con piu istanze di recensioni, connessioni e recensioni-seguite, eseguire lo script `start-scale-goodmusic.sh`
 * per creare i topic kafka, eseguire lo script  `create-kafka_topics.sh`
 * per inizializzare le basi di dati con dei dati di esempio, eseguire gli script `do-init-recensioni.sh` e `do-init-connessioni.sh`
 
@@ -141,7 +142,7 @@ Con riferimento agli script forniti:
 * La logica del servizio recensioni-seguite utilizzando delle
   invocazioni remote asincrone con l'utilizzo di Kafka.
 * Il servizio recensioni-seguite gestisce una propria base di dati.
-
+* Mandare in esecuzione più istanze di ciascun servizio
 
 ## Questo progetto è sviluppato da:
 * [B3rserker9](https://github.com/b3rserker9/B3rserker9) - Yousef Ali

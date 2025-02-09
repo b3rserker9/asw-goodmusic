@@ -18,6 +18,8 @@ services:
       - SPRING_CLOUD_CONSUL_PORT=8500
   connessioni:
     build: ./connessioni
+    deploy:
+      replicas: 2
     depends_on:
       - connessioni_db
       - kafka
@@ -32,6 +34,8 @@ services:
 
   recensioni:
     build: ./recensioni
+    deploy:
+      replicas: 2
     depends_on:
       - recensione_db
       - kafka
@@ -46,6 +50,8 @@ services:
 
   recensioni-seguite:
     build: ./recensioni-seguite
+    deploy:
+      replicas: 2
     depends_on:
       - recensioneseguitedb
       - consul
