@@ -5,7 +5,7 @@ spring:
     name: connessioni
   cloud:
     consul:
-      host: localhost
+      host: consul
       port: 8500
       discovery: 
         instanceId: ${spring.application.name}-${spring.cloud.client.hostname}-${random.value}
@@ -18,9 +18,13 @@ spring:
         queryPassing: true 
     loadbalancer: 
       ribbon.enabled: false 
+  datasource:
+    url: jdbc:postgresql://connessioni_db:5432/connessioni
+    username: postgres
+    password: postgres
 
 server: 
-  port: ${PORT:${SERVER_PORT:0}}
+  port: 8080
 #  port: 8080
   # per swagger, se dietro a un api gateway 
   forward-headers-strategy: framework
@@ -29,3 +33,11 @@ server:
 #spring.jpa.show-sql: true
 # disable OSIV
 spring.jpa.open-in-view: false
+spring.jpa.hibernate.ddl-auto: create
+
+# KAFKA
+spring.kafka.bootstrap-servers : kafka:9092
+
+# KAFKA PRODUCER
+spring.kafka.producer.key-serializer: org.apache.kafka.common.serialization.StringSerializer
+spring.kafka.producer.value-serializer: org.springframework.kafka.support.serializer.JsonSerializer

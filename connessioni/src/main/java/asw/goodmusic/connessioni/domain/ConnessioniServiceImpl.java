@@ -2,6 +2,7 @@ package asw.goodmusic.connessioni.domain;
 
 import asw.goodmusic.common.api.event.DomainEvent;
 import asw.goodmusic.connessioni.api.event.ConnessioneCreatedEvent;
+import asw.goodmusic.connessioni.api.event.ConnessioneDeletedEvent;
 import asw.goodmusic.connessioni.eventPublisher.ConnessioneCreatedEventPublisher;
 import asw.goodmusic.connessioni.eventPublisher.ConnessioneDeletedEventPublisher;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,7 +75,7 @@ public class ConnessioniServiceImpl implements ConnessioniService {
     /* Cancella una connessione, dati utente, seguito e ruolo. */
     public Connessione deleteConnessione(String utente, String seguito, String ruolo) {
         Connessione connessione = getConnessione(utente, seguito, ruolo);
-        DomainEvent connessioneEvent = new ConnessioneCreatedEvent(utente, seguito, ruolo);
+        DomainEvent connessioneEvent = new ConnessioneDeletedEvent(utente, seguito, ruolo);
         if (connessione != null) {
             connessioniRepository.delete(connessione);
             connessioneDeletedEventPublisher.publish(connessioneEvent);

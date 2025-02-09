@@ -4,15 +4,15 @@
 
 curl -X POST "http://localhost:8080/connessioni/connessioni" -H "accept: */*" -H "Content-Type: application/json" \
      -d "{ \"utente\": \"Alice\", \"seguito\": \"Bruce Springsteen\", \"ruolo\": \"ARTISTA\"}"
-echo 
+echo
 
 curl -X POST "http://localhost:8080/connessioni/connessioni" -H "accept: */*" -H "Content-Type: application/json" \
      -d "{ \"utente\": \"Bob\", \"seguito\": \"Jazz\", \"ruolo\": \"GENERE\"}"
-echo 
+echo
 
 curl -X POST "http://localhost:8080/connessioni/connessioni" -H "accept: */*" -H "Content-Type: application/json" \
      -d "{ \"utente\": \"Carlo\", \"seguito\": \"RollingStone\", \"ruolo\": \"RECENSORE\"}"
-echo 
+echo
 
 # elimina alcune connessioni 
 

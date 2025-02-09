@@ -42,8 +42,9 @@ public class RecensioniSeguiteServiceDB {
         logger.info("[RecensioniSeguiteServiceDB] SAVING RECENSIONE: " + recensioneBreve.toString());
         try {
             recensioneBreveRepository.save(recensioneBreve);
+            logger.info("[RecensioniSeguiteServiceDB] RECENSIONE SAVED: " + recensioneBreve.toString());
         } catch (Exception e) {
-            logger.warning("[RecensioniSeguiteServiceDB] SAVING CONNESSIONE RECENSIONE: " + e.getMessage());
+            logger.warning("[RecensioniSeguiteServiceDB] SAVING RECENSIONE FAILED: " + e.getMessage());
         }
     }
 }
